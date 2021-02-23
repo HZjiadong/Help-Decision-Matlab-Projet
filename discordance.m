@@ -1,4 +1,6 @@
 function [discord] = discordance(mat, note)
+%size(mat,1)=a:nombre de Solutions
+%size(mat,2)=b:nombre de Critere
 nbSol = size(mat, 1);
 nbCrit = size(mat, 2);
 discord = zeros(nbSol, nbSol);
