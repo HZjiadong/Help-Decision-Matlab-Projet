@@ -14,16 +14,16 @@ MP_contrainte = [1 2 3 1 1 2;
                  2 2 1 2 2 1;
                  1 0 3 2 2 1];
              
-%Table5: co?t horaire des machines par heure
+%Table5: cost horaire des machines par heure
 cout_machine = [2 2 3 3 2 3 3]';
 
-%Table5': co?t horaire des machine par minutes
+%Table5': cost horaire des machine par minutes
 cout_produit_temps = Machine_contrainte' * cout_machine / 60;
 
-%Table4: co?t d'achat des matières premières
+%Table4: cost d'achat des matières premières
 cout_matiere = [3 2 1];
 
-%Table4':co?t des matières premières pour chaque produire    
+%Table4':cost des matières premières pour chaque produire    
 cout_produit_mp = MP_contrainte' * cout_matiere';
 
 %Table4:prix de vente des produits finis   
@@ -34,9 +34,12 @@ revenu_brut = [55 37 60 45 35 30]';
 benefice_contraint = revenu_brut - cout_produit_mp - cout_produit_temps;
 
 A = [A1; -benefice_contraint'];
+%8000是判断工厂正常工作状态的最小值，即“产值超过8000就视为正常状态”
 b = [b1; -8000];
 
-
+%personnel的要求是为了最小化2号和5号机器的使用
+%所以这里的coif是每个产品在2号和5号上使用的总时长
+%目的就是找到最小化这个使用状态的条件
 f = [32 11 32 22 15 22];
 
 
