@@ -1,4 +1,6 @@
 function [graph] = Electre1()
+
+%Table6: matrice des jugements
 matrice_jugement = [3 5 7 4;
                     5 4 3 3;
                     6 5 5 4;
